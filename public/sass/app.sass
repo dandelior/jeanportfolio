@@ -1,0 +1,738 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700|Roboto+Condensed:300,300i,400,400i,700,700i")
+@import reset
+
+*:root
+  --ratio: 1.1487
+  --base: 1
+  --base-em: calc(var(--base) * 1em)
+  --base-px: calc(var(--base) * 16px)
+  --ms0: 1
+  --ms1: var(--ratio)
+  --ms2: calc(var(--ratio) * var(--ms1))
+  --ms3: calc(var(--ratio) * var(--ms2))
+  --ms4: calc(var(--ratio) * var(--ms3))
+  --ms5: calc(var(--ratio) * var(--ms4))
+  --ms6: calc(var(--ratio) * var(--ms5))
+  --ms7: calc(var(--ratio) * var(--ms6))
+
+/* 768px
+@media (min-width: 48em)
+  *:root
+    --base: 1
+
+/* 1024px
+@media (min-width: 64em)
+  *:root
+    --base: 1.02
+
+/* 1280px
+@media (min-width: 75em)
+  *:root
+    --base: 1.05
+
+body
+  font-size: calc(var(--base-em) * var(--ms0))
+  line-height: 150%
+
+@media (min-width: 48em)
+  body
+    line-height: 155%
+
+@media (min-width: 64em)
+  body
+    line-height: 160%
+
+@media (min-width: 75em)
+  body
+    line-height: 163%
+
+p
+  margin-top: calc(var(--base-em) / var(--ms2))
+
+h1, h2, h3, h4, h5
+  line-height: 130%
+  font-weight: bold
+
+h6
+  line-height: 130%
+  font-weight: bold
+  font-size: calc(var(--base-em) / var(--ms0))
+  margin-top: calc(var(--base-em) / var(--ms2))
+
+h5
+  font-size: calc(var(--base-em) * var(--ms1))
+  margin-top: calc(var(--base-em) / var(--ms1))
+
+h4
+  font-size: calc(var(--base-em) * var(--ms2))
+  margin-top: calc(var(--base-em) / var(--ms0))
+
+h3
+  font-size: calc(var(--base-em) * var(--ms3))
+  margin-top: calc(var(--base-em))
+
+h2
+  font-size: calc(var(--base-em) * var(--ms4))
+  margin-top: calc(var(--base-em) * var(--ms0))
+
+h1
+  font-size: calc(var(--base-em) * var(--ms5))
+  margin-top: calc(var(--base-em) * var(--ms1))
+
+body
+  padding: 0
+  margin: 0
+  font-family: 'Heebo', sans-serif
+
+p, li, a
+  color: rgba(0, 0, 0, 0.75)
+
+p
+  b, strong
+    font-weight: 500
+
+li
+  b, strong
+    font-weight: 500
+
+a
+  b, strong
+    font-weight: 500
+
+p
+  i, em
+    font-style: italic
+
+li
+  i, em
+    font-style: italic
+
+a
+  i, em
+    font-style: italic
+
+/* Colores
+
+.color-white
+  color: white
+
+.color-blue
+  color: #0E2A6A
+
+.color-rose
+  color: #F6B5B5
+
+.w-400
+  font-weight: 400
+
+/* HEADER
+
+header
+  background: transparent
+  padding: 30px 20px 0
+  position: absolute
+  width: 100%
+  z-index: 99
+  box-sizing: border-box
+  transition: all linear 0.5s
+  .header-inner
+    display: grid
+    grid-template-columns: 0.8fr 1fr
+    max-width: 1100px
+    margin: auto
+    align-items: center
+    .logo
+      transition: all linear 0.3s
+      opacity: 1
+      &:hover
+        opacity: 0.7
+      .logo-big
+        width: 40px
+        transition: all linear 0.3s
+      .logo-small
+        display: none
+        margin: 0
+        margin-top: 0.7px
+        transition: all linear 0.3s
+        font-weight: 400
+        letter-spacing: 1.2px
+        font-size: 88%
+        color: rgba(0, 0, 0, 0.7)
+        font-family: 'Roboto Condensed', sans-serif
+    .menu
+      justify-self: end
+      a
+        font-weight: 300
+        margin-left: 20px
+        text-transform: uppercase
+        font-size: 80%
+        letter-spacing: 0.4px
+        opacity: 1
+        transition: all ease 0.3s
+        &:hover
+          opacity: 0.7
+
+@media (min-width: 600px)
+  header
+    padding: 58px 38px 0
+    .header-inner
+      align-items: start
+      grid-template-columns: 1fr 1fr
+      .logo .logo-big
+        width: 60px
+
+@media (min-width: 900px)
+  header
+    padding: 45px 44px 0
+
+@media (min-width: 1200px)
+  header
+    padding: 58px 0 28px
+    .header-inner .logo .logo-big
+      width: 55px
+
+.color-white
+  color: white
+  a
+    color: white
+    fill: white
+
+.color-black
+  color: black
+  a
+    color: black
+    fill: rgba(0, 0, 0, 0.6)
+
+.color-rose
+  color: #F6B5B5
+  a
+    color: #F6B5B5
+    fill: #F6B5B5
+
+.active
+  background: white
+  padding: 22px 20px 17px
+  color: rgba(0, 0, 0, 0.7) !important
+  a
+    color: rgba(0, 0, 0, 0.7) !important
+
+@media (min-width: 600px)
+  .active
+    padding: 24px 38px 20.5px
+
+@media (min-width: 900px)
+  .active
+    padding: 22px 44px 18.5px
+
+@media (min-width: 1200px)
+  .active
+    padding: 22px 0 18.5px
+
+/* PARALLAX HERO
+
+.hero
+  position: relative
+  top: 0
+  overflow: hidden
+  height: 100vh
+  .no-parallax, .parallax
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+  .index-hero
+    display: block !important
+  .index-hero-tablet
+    display: none !important
+  .index-hero-desktop
+    display: none !important
+
+@media (min-width: 600px)
+  .hero
+    .index-hero
+      display: none !important
+    .index-hero-tablet
+      display: block !important
+    .index-hero-desktop
+      display: none !important
+
+@media (min-width: 900px)
+  .hero
+    .index-hero
+      display: none !important
+    .index-hero-tablet
+      display: none !important
+    .index-hero-desktop
+      display: block !important
+
+/* PORTAFOLIO GRID :: INDEX
+
+.portfolio-grid-wrapper
+  width: 100%
+  .portfolio-grid
+    display: grid
+    margin: auto
+    .portfolio-grid-item
+      height: 330px
+      display: grid
+      position: relative
+      background: #F6B5B5
+      background-repeat: no-repeat
+      background-position: center
+      background-size: cover
+      position: relative
+      .portfolio-grid-hover
+        opacity: 0
+        background: rgba(0, 0, 0, 0.7)
+        color: white
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        transition: all linear .3s
+        .hover
+          display: grid
+          align-content: center
+          align-items: center
+          height: 100%
+          h4
+            text-align: center
+            align-self: center
+            margin: 0
+            transition: all linear 0.3s
+            font-weight: 400
+            font-size: 140%
+            letter-spacing: 0.5px
+          p
+            text-align: center
+            margin: 0
+            color: rgba(255, 255, 255, 0.8)
+            font-weight: 200
+            letter-spacing: 0.5px
+            font-size: 90%
+            transition: all linear 0.3s
+        &:hover
+          opacity: 1
+
+@media (min-width: 600px)
+  .portfolio-grid-wrapper .portfolio-grid
+    grid-template-columns: 1fr 1fr
+    .portfolio-grid-item
+      height: 340px
+
+@media (min-width: 900px)
+  .portfolio-grid-wrapper .portfolio-grid .portfolio-grid-item
+    height: 370px
+
+@media (min-width: 1200px)
+  .portfolio-grid-wrapper .portfolio-grid .portfolio-grid-item
+    height: 390px
+
+@media (min-width: 1400px)
+  .portfolio-grid-wrapper .portfolio-grid .portfolio-grid-item
+    height: 440px
+
+/* FOOTER
+
+footer
+  padding: 55px 20px 45px
+  background: #F4F4F4
+  .footer-inner
+    max-width: 1100px
+    margin: auto
+    text-align: center
+    display: grid
+    .rrss
+      text-align: center
+      padding: 0
+      margin: 0
+      a
+        opacity: 1
+        transition: all linear 0.4s
+        &:hover
+          opacity: 0.7
+      .rrss-icon
+        width: 23px
+        margin-right: 0.35em
+        fill: rgba(0, 0, 0, 0.8)
+    .mailme
+      text-align: center
+      padding: 0
+      margin: 0
+      margin-top: 18px
+      color: rgba(0, 0, 0, 0.6)
+      a
+        font-weight: 500
+        border-bottom: solid 1px transparent
+        transition: all linear 0.3s
+        color: rgba(0, 0, 0, 0.8)
+        &:hover
+          border-bottom: solid 1px rgba(0, 0, 0, 0.6)
+    p
+      font-size: 90%
+      letter-spacing: 0.5px
+      font-weight: 300
+      padding: 0
+      margin: 0
+
+@media (min-width: 600px)
+  footer
+    padding: 60px 38px 45px
+    .footer-inner
+      grid-template-columns: 1fr 1fr
+      .rrss
+        text-align: left
+      .mailme
+        text-align: right
+        margin: 0
+
+@media (min-width: 900px)
+  footer
+    padding: 60px 44px 45px
+
+@media (min-width: 1200px)
+  footer
+    padding: 60px 0 45px
+
+/* BIO
+
+.bio-wrapper
+  width: 100%
+  .bio
+    padding: 40px 20px 70px
+    margin: auto
+    max-width: 1100px
+    h4
+      max-width: 95%
+      font-weight: 100
+      line-height: 155%
+      font-size: 123%
+      a
+        font-weight: 100
+        position: relative
+        color: black
+        border-bottom: solid 1px rgba(0, 0, 0, 0.5)
+        transition: all linear 0.3s
+        &:hover
+          border-bottom: solid 1px transparent
+
+@media (min-width: 600px)
+  .bio-wrapper .bio
+    padding: 60px 38px 85px
+    h4
+      max-width: 92%
+
+@media (min-width: 900px)
+  .bio-wrapper .bio
+    padding: 80px 44px 90px
+    h4
+      max-width: 85%
+
+@media (min-width: 1200px)
+  .bio-wrapper .bio
+    padding: 100px 0 112px 0
+    h4
+      max-width: 80%
+
+.about-details-wrapper
+  width: 100%
+  background: rgba(246, 181, 181, 0.4)
+  .about-details
+    padding: 65px 20px 60px
+    margin: auto
+    max-width: 1100px
+    display: grid
+    .details-experience h4, .details-social h4, .details-services h4
+      text-transform: uppercase
+      font-weight: 600
+      font-size: 90%
+      letter-spacing: 1.5px
+      margin-bottom: 1.4em
+      color: rgba(0, 0, 0, 0.75)
+    .details-experience h6, .details-social h6, .details-services h6
+      font-weight: 400
+      font-size: 95%
+      margin-bottom: 0.15em
+      margin-top: 1em
+      color: rgba(0, 0, 0, 0.8)
+    .details-experience p, .details-social p, .details-services p
+      font-size: 95%
+      font-weight: 300
+      line-height: 155%
+    .details-experience p i, .details-social p i, .details-services p i
+      font-style: italic
+    .details-experience
+      h4, p
+        margin-top: 0
+    .details-services
+      h4
+        margin-top: 2.1em
+      p
+        margin-top: 0
+    a
+      opacity: 1
+      transition: all ease 0.3s
+      &:hover
+        opacity: 0.7
+
+@media (min-width: 600px)
+  .about-details-wrapper .about-details
+    padding: 70px 38px 70px
+    grid-template-columns: 1.2fr 1fr 1fr
+    .details-experience h4, .details-social h4, .details-services h4
+      text-transform: uppercase
+      font-weight: 600
+      font-size: 90%
+      letter-spacing: 1.5px
+      margin-bottom: 1.4em
+      color: rgba(0, 0, 0, 0.75)
+    .details-experience h6, .details-social h6, .details-services h6
+      font-weight: 400
+      font-size: 95%
+      margin-bottom: 0.15em
+      margin-top: 1em
+      color: rgba(0, 0, 0, 0.8)
+    .details-experience p, .details-social p, .details-services p
+      font-size: 95%
+      font-weight: 300
+      line-height: 155%
+    .details-experience p i, .details-social p i, .details-services p i
+      font-style: italic
+    .details-experience p
+      margin-top: 0
+    .details-services
+      h4, p
+        margin-top: 0
+      .second-title
+        margin-top: 2em
+
+@media (min-width: 900px)
+  .about-details-wrapper .about-details
+    padding: 90px 44px 80px
+    grid-template-columns: 1fr 1fr 1fr
+
+@media (min-width: 1200px)
+  .about-details-wrapper .about-details
+    padding: 100px 0 88px 0
+
+@media (min-width: 1400px)
+  .about-details-wrapper .about-details
+    padding: 100px 0 92px 0
+
+/* PORTAFOLIO -> Single Proyect
+
+.portfolio-content
+  width: 100%
+  .portfolio-head
+    display: grid
+    max-width: 1100px
+    margin: auto
+    padding: 50px 20px
+    .head-title
+      padding-right: 4em
+      margin-bottom: 1.5em
+      p
+        text-transform: uppercase
+        font-weight: 600
+        font-size: 70%
+        letter-spacing: 1.5px
+        margin: 0
+        margin-bottom: 0.7em
+        color: rgba(0, 0, 0, 0.75)
+      h2
+        margin: 0
+        font-size: 190%
+        font-weight: 400
+    .head-description
+      padding-top: 0.07em
+      p
+        margin-top: 1em
+        font-weight: 300
+        letter-spacing: 0.1px
+        &:first-child
+          margin-top: 0
+  .portfolio-body
+    margin: auto
+    max-width: 95vw
+    overflow: hidden
+    width: 100%
+    img, video, figure
+      width: 100%
+      height: 100%
+      margin-bottom: 15px
+    .wp-video-shortcode, .wp-video
+      width: auto !important
+      video
+        width: 100% !important
+        height: 100% !important
+
+@media (min-width: 600px)
+  .portfolio-content .portfolio-head
+    grid-template-columns: 0.9fr 1fr
+    grid-gap: 1.5em
+    padding: 70px 38px
+    .head-title
+      margin-bottom: 0
+
+@media (min-width: 900px)
+  .portfolio-content .portfolio-head
+    padding: 75px 44px 80px
+    .head-title
+      margin-bottom: 0
+
+@media (min-width: 1200px)
+  .portfolio-content .portfolio-head
+    grid-gap: 1.5em
+    padding: 107px 0
+    .head-title
+      margin-bottom: 0
+
+.portfolio-next-wrapper
+  margin-top: 1em
+  background: rgba(246, 181, 181, 0.4)
+  display: block
+  width: 100%
+  transition: all linear 0.3s
+  .portfolio-next
+    padding-right: 4em
+    padding: 47px 0 50px 20px
+    margin: auto
+    max-width: 1100px
+    font-size: 90%
+    p
+      text-transform: uppercase
+      font-weight: 600
+      font-size: 70%
+      letter-spacing: 1.5px
+      margin: 0
+      margin-bottom: 0.9em
+      color: rgba(0, 0, 0, 0.75)
+    h2
+      margin: 0
+      font-size: 190%
+      font-weight: 400
+  &:hover
+    background: #E0E0E0
+
+@media (min-width: 600px)
+  .portfolio-next-wrapper .portfolio-next
+    padding: 65px 0 67px 38px
+    font-size: 100%
+
+@media (min-width: 900px)
+  .portfolio-next-wrapper .portfolio-next
+    padding-left: 44px
+
+@media (min-width: 1200px)
+  .portfolio-next-wrapper .portfolio-next
+    padding-left: 0
+    padding: 85px 0 83px 0
+
+/* Keyframes
+@-webkit-keyframes fadeIn
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-moz-keyframes fadeIn
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+
+@-webkit-keyframes fadeInUp
+  0%
+    opacity: 0
+    transform: translate3d(0, 100%, 0)
+
+  100%
+    opacity: 1
+    transform: none
+
+
+@-moz-keyframes fadeInUp
+  0%
+    opacity: 0
+    transform: translate3d(0, 100%, 0)
+
+  100%
+    opacity: 1
+    transform: none
+
+
+@keyframes fadeInUp
+  0%
+    opacity: 0
+    transform: translate3d(0, 100%, 0)
+
+  100%
+    opacity: 1
+    transform: none
+
+
+@-webkit-keyframes fadeInRight
+  0%
+    opacity: 0
+    transform: translate3d(100%, 0, 0)
+
+  100%
+    opacity: 1
+    transform: none
+
+
+@-moz-keyframes fadeInRight
+  0%
+    opacity: 0
+    transform: translate3d(100%, 0, 0)
+
+  100%
+    opacity: 1
+    transform: none
+
+
+@keyframes fadeInRight
+  0%
+    opacity: 0
+    transform: translate3d(100%, 0, 0)
+
+  100%
+    opacity: 1
+    transform: none
+
+
+/* Animaciones
+
+.m-scene
+  /* Basic styles for an animated element
+  /* An element that fades in
+  /* An element that fades in and slides up
+  /* An element that fades in and slides from the right
+  .scene_element
+    animation-duration: 1.3s
+    transition-timing-function: ease-in
+    animation-fill-mode: both
+  .scene_element--fadein
+    animation-name: fadeIn
+  .scene_element--fadeinup
+    animation-name: fadeInUp
+  .scene_element--fadeinright
+    animation-name: fadeInRight
+  &.is-exiting .scene_element
+    animation-direction: alternate-reverse
