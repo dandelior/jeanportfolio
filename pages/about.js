@@ -6,7 +6,7 @@ import Header from '../parts/header'
 import HeroSobremi from '../parts/hero-sobremi'
 import Footer from '../parts/footer'
 
-const SobreMi = () => (
+const About = () => (
     <div className="container">
         <Head>
         <title>Sobre mi — Jean Gutierrez</title>
@@ -73,4 +73,4 @@ const SobreMi = () => (
     </div>
 )
 
-export default SobreMi;
+export default About;

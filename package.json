@@ -8,6 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/client": "^1.149.2",
+    "@sanity/image-url": "^0.140.17",
+    "groq": "^1.149.0",
     "next": "9.3.0",
     "next-fonts": "^1.0.3",
     "react": "16.13.0",
