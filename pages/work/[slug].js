@@ -18,6 +18,7 @@ const Item = (props) => {
         title, 
 		workType, 
 		slug,
+		headerType,
 		featuredImage,
 		description,
         content,
@@ -33,7 +34,7 @@ const Item = (props) => {
 				<link rel="stylesheet" href="/css/app.css" />
 			</Head>
 
-			<Header/>
+			<Header headerType={headerType} />
 			
 			<section className="hero">
 				<div class="parallax" style={{ backgroundImage: 'url(' + urlFor(featuredImage).url() + ')' }}></div>
@@ -82,7 +83,8 @@ const Item = (props) => {
 
 const query = groq`*[_type == "trabajo" && slug.current == $slug][0]{
     title, 
-    workType, 
+	workType, 
+	headerType, 
 	slug,
 	featuredImage,
 	description,

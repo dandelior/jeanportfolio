@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-const Header = () => (
+const Header = props => (
     <>
         <header>
-            <div className="header-inner">
+            <div className={ "header-inner " + props.headerType }>
 
                 <Link href="/">
                     <a className="logo">
