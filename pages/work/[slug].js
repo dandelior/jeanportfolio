@@ -12,73 +12,103 @@ function urlFor (source) {
     return imageUrlBuilder(client).image(source)
 }
 
-const Item = (props) => {
+let lastScrollY = 0;
+let ticking = false;
 
-	const { 
-        title, 
-		workType, 
-		slug,
-		headerType,
-		featuredImage,
-		description,
-        content,
-		createdAt,
-		trabajos
-    } = props
+// const Item = (props) => {
+class Item extends React.Component {
+	constructor(props) {
+        super(props);
+	}
+	componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll, true);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
+	}
+	
+	parallaxWorkItem = React.createRef();
 
-    return (
-		<div className="container">
-			<Head>
-				<title>{title} — Jean Gutierrez</title>
-				<Styles />
-				<link rel="stylesheet" href="/css/app.css" />
-			</Head>
+	handleScroll = () => {
+        lastScrollY = window.scrollY;
 
-			<Header headerType={headerType} />
-			
-			<section className="hero">
-				<div class="parallax" style={{ backgroundImage: 'url(' + urlFor(featuredImage).url() + ')' }}></div>
-			</section>
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+              this.parallaxWorkItem.current.style.top = `${(lastScrollY / 1.5) + 1.5}px`;
+              ticking = false;
+            });
+         
+            ticking = true;
+        }
+    }
 
-			<section className="portfolio-content">
-				<section className="portfolio-head">
-					<div className="head-title">
-						<p>
-							{workType}
-						</p>
-						<h2>
-							{title}
-						</h2>
-					</div>
-					<div className="head-description">
-						<BlockContent blocks={description} {...client.config()} />
-					</div>
+	render() {
+		const { 
+			title, 
+			workType, 
+			slug,
+			headerType,
+			featuredImage,
+			description,
+			content,
+			createdAt,
+			trabajos
+		} = this.props
+	
+		return (
+			<div className="container">
+				<Head>
+					<title>{title} — Jean Gutierrez</title>
+					<Styles />
+					<link rel="stylesheet" href="/css/app.css" />
+				</Head>
+	
+				<Header headerType={headerType} />
+				
+				<section className="hero">
+					<div class="parallax" ref={this.parallaxWorkItem} style={{ backgroundImage: 'url(' + urlFor(featuredImage).url() + ')' }}></div>
 				</section>
-				<section className="portfolio-body">
-					<BlockContent blocks={content} {...client.config()} />
-					{/* <img className="alignnone wp-image-262 size-full" src="https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1.png" alt="" width="2160" height="1440" srcset="https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1.png 2160w, https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1-300x200.png 300w, https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1-768x512.png 768w, https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1-1024x683.png 1024w" sizes="(max-width: 2160px) 100vw, 2160px" /> */}
+	
+				<section className="portfolio-content">
+					<section className="portfolio-head">
+						<div className="head-title">
+							<p>
+								{workType}
+							</p>
+							<h2>
+								{title}
+							</h2>
+						</div>
+						<div className="head-description">
+							<BlockContent blocks={description} {...client.config()} />
+						</div>
+					</section>
+					<section className="portfolio-body">
+						<BlockContent blocks={content} {...client.config()} />
+						{/* <img className="alignnone wp-image-262 size-full" src="https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1.png" alt="" width="2160" height="1440" srcset="https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1.png 2160w, https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1-300x200.png 300w, https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1-768x512.png 768w, https://jeangutierrez.com/wp-content/uploads/2019/08/PortadaRevistaCCHC-1-1024x683.png 1024w" sizes="(max-width: 2160px) 100vw, 2160px" /> */}
+					</section>
 				</section>
-			</section>
-
-			{trabajos.map(
-				({ title = '', slug = '' }) =>
-				{
-					return (
-						<Link href="/work/[slug]" as={`/work/${slug.current}`}>
-							<a className="portfolio-next-wrapper">
-								<section className="portfolio-next">
-									<p>Siguiente Proyecto</p>
-									<h2>{title}</h2>
-								</section>
-							</a>
-						</Link>
-					)
-				}
-			)[0]}
-
-			<Footer/>
-		</div>
-	)
+	
+				{trabajos.map(
+					({ title = '', slug = '' }) =>
+					{
+						return (
+							<Link href="/work/[slug]" as={`/work/${slug.current}`}>
+								<a className="portfolio-next-wrapper">
+									<section className="portfolio-next">
+										<p>Siguiente Proyecto</p>
+										<h2>{title}</h2>
+									</section>
+								</a>
+							</Link>
+						)
+					}
+				)[0]}
+	
+				<Footer/>
+			</div>
+		)
+	}
 }
 
 const query = groq`*[_type == "trabajo" && slug.current == $slug][0]{

@@ -35,6 +35,16 @@ class Header extends React.Component {
             });
          
             ticking = true;
+        } else {
+            window.requestAnimationFrame(() => {
+                this.headerScroll.current.style.position = 'nofixed';
+                this.setState ({
+                    headerActive: 'noactive'
+                })
+              //   this.logoBig.current.style.display = 'none';
+              //   this.logoSmall.current.style.display = 'inherit';
+                ticking = false;
+              });
         }
     }
 
