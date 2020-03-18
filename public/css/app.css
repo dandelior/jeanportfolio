@@ -302,6 +302,12 @@ header .header-inner .menu a:hover {
 .active a {
   color: rgba(0, 0, 0, 0.7) !important;
 }
+.active .header-inner .logo .logo-big {
+  display: none;
+}
+.active .header-inner .logo .logo-small {
+  display: inherit;
+}
 
 @media (min-width: 600px) {
   .active {
