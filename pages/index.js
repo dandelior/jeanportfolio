@@ -26,8 +26,8 @@ const Index = (props) => {
 
       <section className="hero">
         <div className="no-parallax index-hero" style={{ backgroundImage: 'url(../img/_front.jpg)' }}></div>
-        <div class="no-parallax index-hero-tablet" style={{ backgroundImage: 'url(../img/_front-m.jpg)' }}></div>
-        <div class="no-parallax index-hero-desktop" style={{ backgroundImage: 'url(../img/_front-l.jpg)' }}></div>
+        <div className="no-parallax index-hero-tablet" style={{ backgroundImage: 'url(../img/_front-m.jpg)' }}></div>
+        <div className="no-parallax index-hero-desktop" style={{ backgroundImage: 'url(../img/_front-l.jpg)' }}></div>
       </section>
 
       <div className="portfolio-grid-wrapper" id="portfolio">
@@ -64,7 +64,7 @@ const Index = (props) => {
 
 Index.getInitialProps = async () => ({
   posts: await client.fetch(groq`
-    *[_type == "trabajo"] | order(_createdAt desc) {title, workType, slug, featuredImage }[0...9]
+    *[_type == "trabajo"] | order(_createdAt desc) {title, workType, slug, featuredImage }[0...50]
   `)
 })
 
