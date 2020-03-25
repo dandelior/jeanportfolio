@@ -56,7 +56,7 @@ class Header extends React.Component {
 
                         <Link href="/">
                             <a className="logo">
-                                <svg width="100%" height="100%" ref={this.logoBig} className="logo-big" viewBox="0 0 218 218" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: '1.41421' }}>
+                                <svg ref={this.logoBig} className="logo-big" viewBox="0 0 218 218" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" xmlSpace="preserve" style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: '1.41421' }}>
                                     <g id="logo-Jean" transform="matrix(1,0,0,1,-415.582,141.338)">
                                         <rect x="415.582" y="-141.338" width="217.459" height="217.459" style={{ fill: 'none' }}/>
                                         <g id="Capa-1" transform="matrix(1.34195,0,0,1.34195,425.127,-131.792)">
