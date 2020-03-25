@@ -25,9 +25,9 @@ const Index = (props) => {
       <Header/>
 
       <section className="hero">
-        <div className="no-parallax index-hero" style={{ backgroundImage: 'url(../img/front.jpg)' }}></div>
-        <div class="no-parallax index-hero-tablet" style={{ backgroundImage: 'url(../img/front-l.jpg)' }}></div>
-        <div class="no-parallax index-hero-desktop" style={{ backgroundImage: 'url(../img/front.jpg)' }}></div>
+        <div className="no-parallax index-hero" style={{ backgroundImage: 'url(../img/_front.jpg)' }}></div>
+        <div class="no-parallax index-hero-tablet" style={{ backgroundImage: 'url(../img/_front-m.jpg)' }}></div>
+        <div class="no-parallax index-hero-desktop" style={{ backgroundImage: 'url(../img/_front-l.jpg)' }}></div>
       </section>
 
       <div className="portfolio-grid-wrapper" id="portfolio">
