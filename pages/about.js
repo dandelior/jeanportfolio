@@ -23,7 +23,7 @@ class About extends React.Component {
         super(props);
     }
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll, true);
+        window.addEventListener('scroll', this.handleScroll);
     }
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -59,7 +59,7 @@ class About extends React.Component {
                 <Header/>
                 
                 <section className="hero">
-                    <div class="parallax" ref={this.parallaxItem} style={{ backgroundImage: 'url(' + urlFor(about[0].presentationImage).url() + ')' }}></div>
+                    <div className="parallax" ref={this.parallaxItem} style={{ backgroundImage: 'url(' + urlFor(about[0].presentationImage).url() + ')' }}></div>
                 </section>
     
                 <div className="bio-wrapper">

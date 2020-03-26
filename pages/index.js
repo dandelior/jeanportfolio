@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Styles from '../parts/styles'
 import Link from 'next/link'
 import Header from '../parts/header'
-import PortfolioGrid from '../parts/portfolio-grid'
 import Footer from '../parts/footer'
 import groq from 'groq'
 import client from '../client'
@@ -36,7 +35,7 @@ const Index = (props) => {
           {posts.map (
             ({ title = '', slug = '', featuredImage, workType = '' }) =>
             slug && (
-              <Link href="/work/[slug]" as={`/work/${slug.current}`}>
+              <Link href="/work/[slug]" as={`/work/${slug.current}`} key={slug.current}>
                   <a>
                       <div className="portfolio-grid-item" style={{ backgroundImage: 'url(' + urlFor(featuredImage).url() + ')' }}>
                           <div className="portfolio-grid-hover">

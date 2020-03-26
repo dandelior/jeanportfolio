@@ -5,44 +5,38 @@ let ticking = false;
 
 // const Header = props => (
 class Header extends React.Component {
+    // _isMounted = false;
+
     constructor(props) {
         super(props);
         this.state = {headerActive: 'noactive'}
     }
     componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll, true);
+        // this._isMounted = true;
+        window.addEventListener('scroll', this.handleScroll);
     }
     componentWillUnmount() {
+        // this._isMounted = false;
         window.removeEventListener('scroll', this.handleScroll);
     }
-
-    headerScroll = React.createRef();
-    // logoBig = React.createRef();
-    // logoSmall = React.createRef();
 
     handleScroll = () => {
         lastScrollY = window.scrollY;
 
         if (!ticking && lastScrollY > 200) {
             window.requestAnimationFrame(() => {
-              this.headerScroll.current.style.position = 'fixed';
               this.setState ({
                   headerActive: 'active'
               })
-            //   this.logoBig.current.style.display = 'none';
-            //   this.logoSmall.current.style.display = 'inherit';
               ticking = false;
             });
          
             ticking = true;
         } else {
             window.requestAnimationFrame(() => {
-                this.headerScroll.current.style.position = 'nofixed';
                 this.setState ({
                     headerActive: 'noactive'
                 })
-              //   this.logoBig.current.style.display = 'none';
-              //   this.logoSmall.current.style.display = 'inherit';
                 ticking = false;
               });
         }
@@ -51,7 +45,7 @@ class Header extends React.Component {
     render() {
         return (
             <>
-                <header className={this.state.headerActive} ref={this.headerScroll}>
+                <header className={this.state.headerActive}>
                     <div className={ "header-inner " + this.props.headerType }>
 
                         <Link href="/">
@@ -66,9 +60,9 @@ class Header extends React.Component {
                                                 </g>
                                                 <g>
                                                     <clipPath id="_clip1">
-                                                        <path d="M29.776,129.204L118.047,129.204L118.047,40.374L29.776,129.204Z" clip-rule="nonzero"/>
+                                                        <path d="M29.776,129.204L118.047,129.204L118.047,40.374L29.776,129.204Z" clipRule="nonzero"/>
                                                     </clipPath>
-                                                    <g clip-path="url(#_clip1)">
+                                                    <g clipPath="url(#_clip1)">
                                                         <g transform="matrix(1,0,0,1,65.6189,126.076)">
                                                             <path d="M0,-84.62L0,-15.044C0,-6.686 -6.686,0 -15.042,0L-16.714,0C-25.072,0 -31.758,-6.686 -31.758,-15.044L-31.758,-31.55L-26.534,-31.55L-26.534,-15.044C-26.534,-9.611 -22.146,-5.224 -16.714,-5.224L-15.042,-5.224C-9.61,-5.224 -5.222,-9.611 -5.222,-15.044L-5.222,-84.62L0,-84.62Z" style={{ fillRule: 'nonzero' }}/>
                                                         </g>
@@ -79,9 +73,9 @@ class Header extends React.Component {
                                                 </g>
                                                 <g>
                                                     <clipPath id="_clip2">
-                                                        <path d="M19.571,27.893L16.654,119.927L108.743,27.893L19.571,27.893Z" clip-rule="nonzero"/>
+                                                        <path d="M19.571,27.893L16.654,119.927L108.743,27.893L19.571,27.893Z" clipRule="nonzero"/>
                                                     </clipPath>
-                                                    <g clip-path="url(#_clip2)">
+                                                    <g clipPath="url(#_clip2)">
                                                         <g transform="matrix(1,0,0,1,59.1775,116.799)">
                                                             <path d="M0,-84.62L0,-15.044C0,-6.686 -6.686,0 -15.042,0L-16.714,0C-25.072,0 -31.758,-6.686 -31.758,-15.044L-31.758,-31.55L-26.534,-31.55L-26.534,-15.044C-26.534,-9.611 -22.146,-5.224 -16.714,-5.224L-15.042,-5.224C-9.61,-5.224 -5.222,-9.611 -5.222,-15.044L-5.222,-84.62L0,-84.62Z" style={{ fillRule: 'nonzero' }}/>
                                                         </g>

@@ -21,7 +21,7 @@ class Item extends React.Component {
         super(props);
 	}
 	componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll, true);
+        window.addEventListener('scroll', this.handleScroll);
     }
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -66,7 +66,7 @@ class Item extends React.Component {
 				<Header headerType={headerType} />
 				
 				<section className="hero">
-					<div class="parallax" ref={this.parallaxWorkItem} style={{ backgroundImage: 'url(' + urlFor(featuredImage).url() + ')' }}></div>
+					<div className="parallax" ref={this.parallaxWorkItem} style={{ backgroundImage: 'url(' + urlFor(featuredImage).url() + ')' }}></div>
 				</section>
 	
 				<section className="portfolio-content">
